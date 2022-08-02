@@ -1,0 +1,31 @@
+
+
+.flexbox {
+  background: linear-gradient(155deg, #6a6b6b, #b9d0d8, #bcc8cc);
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3{
+    color:white;
+    
+}
+.imageContainer {
+  border: 1px solid silver;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  margin: 10px;
+  transition: all 0.2s ease;
+  text-align: center;
+  padding: 5px;
+  min-height: 50px;
+  line-height: 50px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+
