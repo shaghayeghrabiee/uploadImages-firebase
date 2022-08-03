@@ -1,6 +1,7 @@
 import React,{createContext,useState,useEffect} from 'react';
 import { toast } from "react-toastify";
 import { storage } from "../pages/firebase";
+import { fireStore } from "../pages/firebase";
 import {
   ref,
   uploadBytes,
@@ -12,7 +13,6 @@ import { v4 } from "uuid";
 
 export const imageContext = createContext();
 
-
 const ImageContextProvider = (props) => {
   const [images, setImages] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
@@ -20,12 +20,13 @@ const ImageContextProvider = (props) => {
 
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
-    if (images == null) return;
+    if (images === null) return;
     const imageRef = ref(storage, `images/${images.name + v4()}`);
     uploadBytes(imageRef, images).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
       });
+
       toast.success("Picture is added successfully!");
     });
   };
@@ -51,9 +52,20 @@ const ImageContextProvider = (props) => {
         console.log(err);
       });
   };
+
+
   return (
     <imageContext.Provider
-      value={{ images, setImages, imageUrls, input, deleteImage, uploadFile }}
+      value={{
+        images,
+        imageUrls,
+        input,
+        setImages,
+        setInput,
+        deleteImage,
+        uploadFile,
+        setImageUrls,
+      }}
     >
       {props.children}
     </imageContext.Provider>

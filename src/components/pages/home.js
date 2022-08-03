@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Button, Container, Form, Col, Row, Card } from "react-bootstrap";
 import style from "../css/home.module.css";
 import NavBar from "./navBar";
@@ -46,7 +46,7 @@ const Home = () => {
                 <Card.Img variant="top" src={imageURL} />
                 <Card.Body>
                   <Button variant="danger" className="mt-2">
-                    {console.log(imageURL)}
+                    
                     <img
                       src={trashIcon}
                       alt="Remove"
