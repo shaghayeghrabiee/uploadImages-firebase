@@ -8,35 +8,34 @@ import {imageContext} from '../context/imageContextProvider';
 const Home = () => {
  const { imageUrls, deleteImage, uploadFile, setImages } =
    useContext(imageContext);
-
+  
   return (
     <>
       <NavBar />
       <section className={style.flexbox}>
         <Form encType="multipart/form-data">
-            <Form.Group>
-              <h3 className="mb-3 text-center">Select your image</h3>
-              <Form.Control
-                type="file"
-                multiple
-                accept="image/*"
-                onChange={(event) => {
-                  setImages(event.target.files[0]);
-                }}
-              />
-            </Form.Group>
+          <Form.Group>
+            <h3 className="mb-3 text-center">Select your image</h3>
+            <Form.Control
+              type="file"
+              multiple
+              accept="image/png, image/jpg,image/jpeg"
+              onChange={(event) => {
+                setImages(event.target.files[0]);
+              }}
+            />
+          </Form.Group>
 
-            <Form className="d-flex">
-              <Button
-                variant="primary"
-                type="button"
-                className="mt-2"
-                onClick={uploadFile}
-              >
-                Upload
-              </Button>
-            </Form>
-         
+          <Form className="d-flex">
+            <Button
+              variant="primary"
+              type="button"
+              className="mt-2"
+              onClick={uploadFile}
+            >
+              Upload
+            </Button>
+          </Form>
         </Form>
       </section>
       <Container className="d-flex align-items-center justify-content-center">
@@ -47,7 +46,7 @@ const Home = () => {
                 <Card.Img variant="top" src={imageURL} />
                 <Card.Body>
                   <Button variant="danger" className="mt-2">
-                    {" "}
+                    {console.log(imageURL)}
                     <img
                       src={trashIcon}
                       alt="Remove"
